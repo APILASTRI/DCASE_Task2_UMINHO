@@ -41,6 +41,7 @@ Libraries:
 ## Training Settings
 
 ## Results
+![result-crop](https://user-images.githubusercontent.com/23443227/84788627-3c2b5380-afe7-11ea-8a7f-a69a950ce9fa.png)
 
 ## References
 
