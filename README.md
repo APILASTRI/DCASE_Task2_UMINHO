@@ -6,9 +6,11 @@ The challenge (dcase 2020 task 2) is to detect unknown anomalies sounds under th
 ## Table of contents
 - [Methods](#methods)
 - [Libraries](#libraries)
+    - [Convolutional Autoencoder](#convolutional-autoencoder-lib)
+    - [Dense Autoencoder](#dense-autoencoder-lib) 
 - [Datasets](#datasets)
-- [Autoencoders](#autoencoders)
 - [Dense Autoencoder](#dense-autoencoder)
+- [Convolutional Autoencoder](#convolutional-autoencoder)
 - [Audio Features](#audio-features)
 - [Features Extraction](#features-extraction)
 - [Training Settings](#training-settings)
@@ -16,27 +18,29 @@ The challenge (dcase 2020 task 2) is to detect unknown anomalies sounds under th
 - [References](#references)
 
 
-
-## Methods
-
-### Libraries
-### Datasets
-### Autoencoders
-
+## Libraries
+### Convolutional Autoencoder
+Libraries:
+- Lib1
+- Lib2
 ### Dense Autoencoder
+Libraries:
+- Lib1
+- Lib2
 
-### Convolutional
+## Datasets
 
+## Dense Autoencoder
 
-### Audio Features
+## Convolutional Autoencoder
 
+## Audio Features
 
-### Features Extraction
+## Features Extraction
 
+## Training Settings
 
-### Training Settings
-
-### Results
+## Results
 
 ## References
 
