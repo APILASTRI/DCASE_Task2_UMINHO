@@ -14,7 +14,7 @@ scipy==1.4.1
 SoundFile==0.10.3.post1
 spafe==0.1.1
 tensorboard==1.15.0
-tensorflow==1.15.0
+tensorflow==1.15.2
 tensorflow-estimator==1.15.1
 tensorflow-gpu==1.15.0
 tqdm==4.23.4
