@@ -16,6 +16,6 @@ spafe==0.1.1
 tensorboard==1.15.0
 tensorflow==1.15.0
 tensorflow-estimator==1.15.1
-tensorflow-gpu==1.15.0
+tensorflow-gpu==1.15.2
 tqdm==4.23.4
 
