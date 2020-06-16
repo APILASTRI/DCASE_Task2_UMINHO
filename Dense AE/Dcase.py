@@ -8,8 +8,6 @@ import glob
 import multiprocessing
 import os
 
-os.environ["KERAS_BACKEND"] = "plaidml.keras.backend"
-
 import sys
 from functools import partial
 from venv import logger
