@@ -8,12 +8,8 @@ The challenge (dcase 2020 task 2) is to detect unknown anomalies sounds under th
 - [Libraries](#libraries)
     - [Convolutional Autoencoder](#convolutional-autoencoder-lib)
     - [Dense Autoencoder](#dense-autoencoder-lib) 
-- [Datasets](#datasets)
 - [Dense Autoencoder](#dense-autoencoder)
 - [Convolutional Autoencoder](#convolutional-autoencoder)
-- [Audio Features](#audio-features)
-- [Features Extraction](#features-extraction)
-- [Training Settings](#training-settings)
 - [Results](#results)
 - [References](#references)
 
@@ -28,17 +24,10 @@ Libraries:
 - Lib1
 - Lib2
 
-## Datasets
-
 ## Dense Autoencoder
 
 ## Convolutional Autoencoder
 
-## Audio Features
-
-## Features Extraction
-
-## Training Settings
 
 ## Results
 ![result-crop](https://user-images.githubusercontent.com/23443227/84788627-3c2b5380-afe7-11ea-8a7f-a69a950ce9fa.png)
