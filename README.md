@@ -2,7 +2,7 @@
 
 Anomalous sound detection (ASD) is the task of identifying whether the sound emitted from a target machine is normal or anomalous. The automatic detection of mechanical failures can bring numerous benefits for industry 4.0 and for factory automation using artificial intelligence (AI)[1]. 
 The challenge (dcase 2020 task 2) is to detect unknown anomalies sounds under the condition that only normal sound samples have were provided as training data. For this task, a baseline system implementation was provided for comparison purposes [1].  
-About the machine learning model to detect anomalies, two methods involving autoencoder were used: Deep Autoencoder and Convulacional Autoencoder. About the features of the audios, It was used the log energies derived directly from the filter bank energies (called MFECs)....
+About the machine learning model to detect anomalies, two methods involving autoencoder were used: Deep Autoencoder and Convolutional Autoencoder. About the audio features,the log energies derived directly from the filter bank energies (called MFECs) were used.
 
 ## :bookmark_tabs: Table of contents
 - [Libraries](#libraries)
@@ -46,8 +46,6 @@ The Convolutional AE system consists of three main scripts:
 Clone this repository from Github. 
 
 ##### 2. Download datasets
-We will launch the datasets in three stages. 
-So, please download the datasets in each stage:
 - Development dataset
   - Download `dev_data_<Machine_Type>.zip` from https://zenodo.org/record/3678171.
 - "Additional training dataset", i.e. the evaluation dataset for training
