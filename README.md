@@ -26,7 +26,7 @@ Libraries:
 
 ## Dense Autoencoder
 
-<img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="500" height="250" />
+<img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="480" height="220" />
 
 
 ## Convolutional Autoencoder
