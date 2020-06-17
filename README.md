@@ -41,6 +41,70 @@ A simple Dense AE was proposed. The overall system architecture is shown in the 
 
 <img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="480" height="220" />
 
+#### Description
+The Dense AE system consists of two main scripts:
+- `Dcase.py`
+  - This script trains models for each Machine Type in the development dataset and tests the models creating csv files for each Machine ID including the anomaly scores for each test wav file, it also makes the csv files including the AUC and pAUC for each Machine ID
+- `Dcase_Eval.py.py`
+  - This script loads models for each Machine Type and tests the models in the evaluation dataset creating csv files for each Machine ID including the anomaly scores for each test wav file.
+
+#### Usage
+
+##### 1. Directory structure
+Make the directory structure as follows:
+- ./dcase2020
+    - /Dcase.py
+    - /Dcase_Eval.py
+    - /dev_data
+        - /ToyCar
+            - /train (Only normal data for all Machine IDs are included.)
+                - /normal_id_01_00000000.wav
+                - ...
+                - /normal_id_04_00000999.wav
+            - /test (Normal and anomaly data for all Machine IDs are included.)
+                - /normal_id_01_00000000.wav
+                - ...
+                - /anomaly_id_04_00000264.wav
+        - /ToyConveyor (The other Machine Types have the same directory structure as ToyCar.)
+        - /fan
+        - /pump
+        - /slider
+        - /valve
+    - /eval_data
+        - /ToyCar
+            - /train ( "additional training dataset". Only normal data for all Machine IDs are included.)
+                - /normal_id_05_00000000.wav
+                - ...
+                - /normal_id_07_00000999.wav
+            - /test ("evaluation dataset". Normal and anomaly data for all Machine IDs are included, but there is no label about normal or anomaly.)
+                - /id_05_00000000.wav
+                - ...
+                - /id_07_00000514.wav
+        - /ToyConveyor (The other machine types have the same directory structure as ToyCar.)
+        - /fan
+        - /pump
+        - /slider
+        - /valve
+  
+##### 2. Run training script 
+Run the training script `Dcase.py`. 
+```
+$ python Dcase.py
+```
+
+`Dcase.py` trains the models and saves the trained models.
+
+##### 3. Run test script
+Run the test script `Dcase_Eval.py`.
+```
+$ python Dcase_Eval.py 
+```
+
+`Dcase_Eval.py` calculates the anomaly scores for each wav file in the directory **dev_data/<Machine_Type>/test/**.
+The csv files for each Machine ID including the anomaly scores will be stored.
+
+
+
 ## Convolutional Autoencoder
 
 A simple Convolutional AE was proposed. The overall system architecture is shown in the following figure. 
@@ -102,10 +166,10 @@ Make the directory structure as follows:
         - /valve
 
 
-#### 2. Change parameters
+##### 2. Change parameters
 You can change the parameters for feature extraction and model definition by editing `config.yaml`.
 
-#### 3. Run features script 
+##### 3. Run features script 
 Run the training script `features.py`. 
 Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional).
@@ -113,7 +177,7 @@ Use the option `--target` to select only one machine type (optional).
 $ python features.py -d --target "ToyCar"
 ```
 
-#### 4. Run training script 
+##### 4. Run training script 
 Run the training script `00_train.py`. 
 Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional).
@@ -123,7 +187,7 @@ $ python 00_train.py -d --target "ToyCar"
 
 `00_train.py` trains the models and saves the trained models in the directory **model/**.
 
-#### 5. Run test script
+##### 5. Run test script
 Run the test script `01_test.py`.
 Use the option  `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional).
