@@ -6,8 +6,6 @@ About the machine learning model to detect anomalies, two methods involving auto
 
 ## :bookmark_tabs: Table of contents
 - [Libraries](#libraries)
-    - [Convolutional Autoencoder](#convolutional-autoencoder-lib)
-    - [Dense Autoencoder](#dense-autoencoder-lib) 
 - [Dense Autoencoder](#dense-autoencoder)
 - [Convolutional Autoencoder](#convolutional-autoencoder)
 - [Results](#results)
@@ -15,14 +13,14 @@ About the machine learning model to detect anomalies, two methods involving auto
 
 
 ## Libraries
-### Convolutional Autoencoder
-Libraries:
-- Lib1
-- Lib2
-### Dense Autoencoder
-Libraries:
-- Lib1
-- Lib2
+- Keras                   
+- matplotlib                    
+- numpy                         
+- PyYAML                        
+- scikit-learn                 
+- librosa                       
+- tensorflow                    
+- tqdm                        
 
 #### Usage
 
