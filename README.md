@@ -24,6 +24,19 @@ Libraries:
 - Lib1
 - Lib2
 
+#### Usage
+
+##### 1. Clone repository
+Clone this repository from Github. 
+
+##### 2. Download and Unzip datasets
+- Development dataset
+  - Download `dev_data_<Machine_Type>.zip` from https://zenodo.org/record/3678171.
+- "Additional training dataset", i.e. the evaluation dataset for training
+  - After launch, download `eval_data_train_<Machine_Type>.zip` from https://zenodo.org/record/3727685 (not available until April. 1).
+- "Evaluation dataset", i.e. the evaluation for test
+  - After launch, download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 (not available until June. 1).
+
 ## Dense Autoencoder
 
 <img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="480" height="220" />
@@ -49,19 +62,8 @@ The Convolutional AE system consists of three main scripts:
 
 #### Usage
 
-##### 1. Clone repository
-Clone this repository from Github. 
-
-##### 2. Download datasets
-- Development dataset
-  - Download `dev_data_<Machine_Type>.zip` from https://zenodo.org/record/3678171.
-- "Additional training dataset", i.e. the evaluation dataset for training
-  - After launch, download `eval_data_train_<Machine_Type>.zip` from https://zenodo.org/record/3727685 (not available until April. 1).
-- "Evaluation dataset", i.e. the evaluation for test
-  - After launch, download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 (not available until June. 1).
-
-##### 3. Unzip dataset
-Unzip the downloaded files and make the directory structure as follows:
+##### 1. Directory structure
+Make the directory structure as follows:
 - ./dcase2020
     - /ConvAE
         - /00_train.py
@@ -101,10 +103,10 @@ Unzip the downloaded files and make the directory structure as follows:
         - /valve
 
 
-#### 4. Change parameters
+#### 2. Change parameters
 You can change the parameters for feature extraction and model definition by editing `config.yaml`.
 
-#### 5. Run training script 
+#### 3. Run training script 
 Run the training script `00_train.py`. 
 Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional)
@@ -114,12 +116,12 @@ $ python 00_train.py -d --target "ToyCar"
 
 `00_train.py` trains the models and saves the trained models in the directory **model/**.
 
-#### 6. Run test script (for development dataset)
+#### 4. Run test script (for development dataset)
 Run the test script `01_test.py`.
 Use the option  `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional).
 ```
-$ python3.6 01_test.py -d  --target "ToyCar"
+$ python 01_test.py -d  --target "ToyCar"
 ```
 The options for `01_test.py` are the same as those for `00_train.py`.
 `01_test.py` calculates the anomaly scores for each wav file in the directory **dev_data/<Machine_Type>/test/**.
