@@ -38,7 +38,7 @@ A simples Convolutional AE was proposed. The overall system architecture is show
 
 #### Description
 The Convolutional AE system consists of three main scripts:
-- `00_train.py`
+- `features.py`
   - This script generates and saves the features for each Machine Type by using the directory **dev_data/<Machine_Type>/train/** or **eval_data/<Machine_Type>/train/**.
 - `00_train.py`
   - This script trains models for each Machine Type by using the features extracted with the previous script.
