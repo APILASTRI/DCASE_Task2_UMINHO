@@ -29,6 +29,11 @@ Libraries:
 
 ## Convolutional Autoencoder
 
+A simples Convolutional AE was proposed. The overall system architecture is shown in the following figure. 
+
+![network_denseAE](https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png)
+
+
 #### Description
 The Convolutional AE system consists of three main scripts:
 - `00_train.py`
