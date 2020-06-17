@@ -22,7 +22,7 @@ About the machine learning model to detect anomalies, two methods involving auto
 - tensorflow                    
 - tqdm                        
 
-#### Usage
+### First Steps
 
 ##### 1. Clone repository
 Clone this repository from Github. 
