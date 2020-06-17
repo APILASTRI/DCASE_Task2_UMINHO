@@ -6,10 +6,10 @@ About the machine learning model to detect anomalies, two methods involving auto
 
 ## :bookmark_tabs: Table of contents
 - [Libraries](#libraries)
-- [Dense Autoencoder](#dense-autoencoder)
-- [Convolutional Autoencoder](#convolutional-autoencoder)
-- [Results](#results)
-- [References](#references)
+- [Dense Autoencoder](#DenseAE)
+- [Convolutional Autoencoder](#ConvAE)
+- [Results](#Results)
+- [References](#References)
 
 
 ## Libraries
@@ -31,10 +31,11 @@ Clone this repository from Github.
 - Development dataset
   - Download `dev_data_<Machine_Type>.zip` from https://zenodo.org/record/3678171.
 - "Additional training dataset", i.e. the evaluation dataset for training
-  - After launch, download `eval_data_train_<Machine_Type>.zip` from https://zenodo.org/record/3727685 (not available until April. 1).
+  - Download `eval_data_train_<Machine_Type>.zip` from https://zenodo.org/record/3727685 .
 - "Evaluation dataset", i.e. the evaluation for test
-  - After launch, download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 (not available until June. 1).
+  - Download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 .
 
+<a name="DenseAE"/>
 ## Dense Autoencoder
 
 A simple Dense AE was proposed. The overall system architecture is shown in the following figure.
@@ -202,7 +203,7 @@ If the mode is "development", the script also makes the csv files including the 
 
 
 
-
+<a name="Results"/>
 ## :chart_with_upwards_trend: Results
 The table below shows the performance results of DCASE 2020 Task 2 for the development dataset in which the best (mean) results are in bold. Best mean for each machine type: 
 - **ToyCar**: Dense AE with 80.79% AUC and 71.17% pAUC
@@ -214,6 +215,7 @@ The table below shows the performance results of DCASE 2020 Task 2 for the devel
 
 ![result-crop](https://user-images.githubusercontent.com/23443227/84788627-3c2b5380-afe7-11ea-8a7f-a69a950ce9fa.png)
 
+<a name="References"/>
 ## :page_with_curl: References
 
 [1] Koizumi, Y., Kawaguchi, Y., Imoto, K., Nakamura, T., Nikaido, Y., Tanabe, R., ... & Harada, N. (2020). Description and Discussion on DCASE2020 Challenge Task2: Unsupervised Anomalous Sound Detection for Machine Condition Monitoring. arXiv preprint arXiv:2006.05822.
