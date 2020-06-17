@@ -37,7 +37,7 @@ Clone this repository from Github.
 
 ## Dense Autoencoder
 
-A simple Dense AE was proposed. The overall system architecture is shown in the following figure.
+A simple Dense AE was proposed. The network architecture is shown in the following figure.
 
 <img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="480" height="220" />
 
@@ -106,7 +106,7 @@ The csv files for each Machine ID including the anomaly scores will be stored.
 
 ## Convolutional Autoencoder
 
-A simple Convolutional AE was proposed. The overall system architecture is shown in the following figure. 
+A simple Convolutional AE was proposed. The network architecture is shown in the following figure. 
 
 <img src="https://user-images.githubusercontent.com/62994395/84875963-94616480-b07e-11ea-9ac1-fe62baa35201.png" width="520" height="250" />
 
