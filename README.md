@@ -26,12 +26,14 @@ Libraries:
 
 ## Dense Autoencoder
 
+<img src="https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png" width="500" height="250" />
+
 
 ## Convolutional Autoencoder
 
 A simples Convolutional AE was proposed. The overall system architecture is shown in the following figure. 
 
-![network_denseAE](https://user-images.githubusercontent.com/62994395/84875585-0eddb480-b07e-11ea-88dc-214a0d93adf6.png)
+<img src="https://user-images.githubusercontent.com/62994395/84875963-94616480-b07e-11ea-9ac1-fe62baa35201.png" width="520" height="250" />
 
 
 #### Description
