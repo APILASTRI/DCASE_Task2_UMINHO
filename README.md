@@ -6,11 +6,10 @@ About the machine learning model to detect anomalies, two methods involving auto
 
 ## :bookmark_tabs: Table of contents
 - [Libraries](#libraries)
-- [Dense Autoencoder](#DenseAE)
-- [Convolutional Autoencoder](#ConvAE)
+- [Dense Autoencoder](#dense-autoencoder)
+- [Convolutional Autoencoder](#convolutional-autoencoder)
 - [Results](#Results)
 - [References](#References)
-
 
 ## Libraries
 - Keras                   
@@ -35,7 +34,7 @@ Clone this repository from Github.
 - "Evaluation dataset", i.e. the evaluation for test
   - Download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 .
 
-<a name="DenseAE"/>
+
 ## Dense Autoencoder
 
 A simple Dense AE was proposed. The overall system architecture is shown in the following figure.
@@ -103,7 +102,6 @@ $ python Dcase_Eval.py
 
 `Dcase_Eval.py` calculates the anomaly scores for each wav file in the directory **dev_data/<Machine_Type>/test/**.
 The csv files for each Machine ID including the anomaly scores will be stored.
-
 
 
 ## Convolutional Autoencoder
