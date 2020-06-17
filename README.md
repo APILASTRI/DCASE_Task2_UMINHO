@@ -108,7 +108,7 @@ You can change the parameters for feature extraction and model definition by edi
 #### 3. Run features script 
 Run the training script `features.py`. 
 Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
-Use the option `--target` to select only one machine type (optional)
+Use the option `--target` to select only one machine type (optional).
 ```
 $ python features.py -d --target "ToyCar"
 ```
@@ -116,14 +116,14 @@ $ python features.py -d --target "ToyCar"
 #### 4. Run training script 
 Run the training script `00_train.py`. 
 Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
-Use the option `--target` to select only one machine type (optional)
+Use the option `--target` to select only one machine type (optional).
 ```
 $ python 00_train.py -d --target "ToyCar"
 ```
 
 `00_train.py` trains the models and saves the trained models in the directory **model/**.
 
-#### 5. Run test script (for development dataset)
+#### 5. Run test script
 Run the test script `01_test.py`.
 Use the option  `-d` for the development dataset or `-e` for the evaluation dataset.
 Use the option `--target` to select only one machine type (optional).
