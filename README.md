@@ -26,7 +26,98 @@ Libraries:
 
 ## Dense Autoencoder
 
+
 ## Convolutional Autoencoder
+
+#### Description
+The Convolutional AE system consists of three main scripts:
+- `00_train.py`
+  - This script generates and saves the features for each Machine Type by using the directory **dev_data/<Machine_Type>/train/** or **eval_data/<Machine_Type>/train/**.
+- `00_train.py`
+  - This script trains models for each Machine Type by using the features extracted with the previous script.
+- `01_test.py`
+  - This script makes csv files for each Machine ID including the anomaly scores for each wav file in the directory **dev_data/<Machine_Type>/test/** or **eval_data/<Machine_Type>/test/**.
+  - The csv files will be stored in the directory **result/**.
+  - If the mode is "development", it also makes the csv files including the AUC and pAUC for each Machine ID. 
+
+#### Usage
+
+##### 1. Clone repository
+Clone this repository from Github. 
+
+##### 2. Download datasets
+We will launch the datasets in three stages. 
+So, please download the datasets in each stage:
+- Development dataset
+  - Download `dev_data_<Machine_Type>.zip` from https://zenodo.org/record/3678171.
+- "Additional training dataset", i.e. the evaluation dataset for training
+  - After launch, download `eval_data_train_<Machine_Type>.zip` from https://zenodo.org/record/3727685 (not available until April. 1).
+- "Evaluation dataset", i.e. the evaluation for test
+  - After launch, download `eval_data_test_<Machine_Type>.zip` from https://zenodo.org/record/3841772 (not available until June. 1).
+
+##### 3. Unzip dataset
+Unzip the downloaded files and make the directory structure as follows:
+- ./dcase2020
+    - /ConvAE
+    - /dev_data
+        - /ToyCar
+            - /train (Only normal data for all Machine IDs are included.)
+                - /normal_id_01_00000000.wav
+                - ...
+                - /normal_id_04_00000999.wav
+            - /test (Normal and anomaly data for all Machine IDs are included.)
+                - /normal_id_01_00000000.wav
+                - ...
+                - /anomaly_id_04_00000264.wav
+        - /ToyConveyor (The other Machine Types have the same directory structure as ToyCar.)
+        - /fan
+        - /pump
+        - /slider
+        - /valve
+    - /eval_data
+        - /ToyCar
+            - /train ( "additional training dataset". Only normal data for all Machine IDs are included.)
+                - /normal_id_05_00000000.wav
+                - ...
+                - /normal_id_07_00000999.wav
+            - /test ("evaluation dataset". Normal and anomaly data for all Machine IDs are included, but there is no label about normal or anomaly.)
+                - /id_05_00000000.wav
+                - ...
+                - /id_07_00000514.wav
+        - /ToyConveyor (The other machine types have the same directory structure as ToyCar.)
+        - /fan
+        - /pump
+        - /slider
+        - /valve
+
+
+#### 4. Change parameters
+You can change the parameters for feature extraction and model definition by editing `config.yaml`.
+
+#### 5. Run training script 
+Run the training script `00_train.py`. 
+Use the option `-d` for the development dataset or `-e` for the evaluation dataset.
+Use the option `--target` to select only one machine type (optional)
+```
+$ python 00_train.py -d --target "ToyCar"
+```
+
+`00_train.py` trains the models and saves the trained models in the directory **model/**.
+
+#### 6. Run test script (for development dataset)
+Run the test script `01_test.py`.
+Use the option  `-d` for the development dataset or `-e` for the evaluation dataset.
+Use the option `--target` to select only one machine type (optional).
+```
+$ python3.6 01_test.py -d  --target "ToyCar"
+```
+The options for `01_test.py` are the same as those for `00_train.py`.
+`01_test.py` calculates the anomaly scores for each wav file in the directory **dev_data/<Machine_Type>/test/**.
+The csv files for each Machine ID including the anomaly scores will be stored in the directory **result/**.
+If the mode is "development", the script also makes the csv files including the AUCs and pAUCs for each Machine ID. 
+
+
+
 
 
 ## :chart_with_upwards_trend: Results
