@@ -59,6 +59,11 @@ So, please download the datasets in each stage:
 Unzip the downloaded files and make the directory structure as follows:
 - ./dcase2020
     - /ConvAE
+        - /00_train.py
+        - /01_test.py
+        - /common.py
+        - /keras_model.py
+        - /config.yaml
     - /dev_data
         - /ToyCar
             - /train (Only normal data for all Machine IDs are included.)
