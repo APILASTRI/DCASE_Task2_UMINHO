@@ -4,6 +4,8 @@ Anomalous sound detection (ASD) is the task of identifying whether the sound emi
 The challenge (dcase 2020 task 2) is to detect unknown anomalies sounds under the condition that only normal sound samples have were provided as training data. For this task, a baseline system implementation was provided for comparison purposes [1].  
 About the machine learning model to detect anomalies, two methods involving autoencoder were used: Deep Autoencoder and Convolutional Autoencoder. About the audio features,the log energies derived directly from the filter bank energies (called MFECs) were used.
 
+[Report](https://arxiv.org/submit/3231871/view) -  Technical report  submitted to Dcase 2020 challenge describing the proposed system
+
 ## :bookmark_tabs: Table of contents
 - [Libraries](#libraries)
 - [Dense Autoencoder](#dense-autoencoder)
@@ -219,3 +221,4 @@ The table below shows the performance results of DCASE 2020 Task 2 for the devel
 ## :page_with_curl: References
 
 [1] Koizumi, Y., Kawaguchi, Y., Imoto, K., Nakamura, T., Nikaido, Y., Tanabe, R., ... & Harada, N. (2020). Description and Discussion on DCASE2020 Challenge Task2: Unsupervised Anomalous Sound Detection for Machine Condition Monitoring. arXiv preprint arXiv:2006.05822.
+
