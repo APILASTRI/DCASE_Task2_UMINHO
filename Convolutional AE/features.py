@@ -49,7 +49,7 @@ param = com.yaml_load()
 # feature extractor
 ########################################################################
 
-def list_to_vector_array(file_list, feat_path, feature_range, scaler, 
+def list_to_vector_array(file_list, feat_path, feature_range, scaler,
                             msg="calc...",
                             n_mels=64,
                             frames=5,
@@ -69,11 +69,11 @@ def list_to_vector_array(file_list, feat_path, feature_range, scaler,
     ###### uncomment to compute scaler
     #scaler = preprocessing.StandardScaler()
 
-    
+
     # iterate file_to_vector_array()
     for idx in tqdm(range(len(file_list)), desc=msg):
 
-        vector_array = com.file_to_vector_array(file_list[idx], feature_range, scaler, 
+        vector_array = com.file_to_vector_array(file_list[idx], feature_range, scaler,
                                             n_mels=n_mels,
                                             frames=frames,
                                             n_fft=n_fft,
@@ -81,14 +81,14 @@ def list_to_vector_array(file_list, feat_path, feature_range, scaler,
                                             power=power)
         ###### uncomment to compute scaler
         #scaler.partial_fit(X=vector_array)
-        
+
         if idx == 0:
             X = np.empty((len(file_list), vector_array.shape[0], vector_array.shape[1]))
         X[idx,] = vector_array
 
-    #save features 
-    numpy.save(feat_path+"\\data.npy", X)
-        
+    #save features
+    numpy.save(os.path.join(feat_path,"data.npy"), X)
+
     ###### uncomment to compute scaler
     '''
     #save scaler
@@ -98,7 +98,7 @@ def list_to_vector_array(file_list, feat_path, feature_range, scaler,
     scaler_file_path = os.path.abspath(scaler_file_path)
     dump(scaler, scaler_file_path+"/scaler_{machine_type}.bin".format(machine_type=machine_type), compress=True)
     print("dump scaler")'''
-           
+
 
 
 def file_list_generator(target_dir,
@@ -153,7 +153,7 @@ if __name__ == "__main__":
         print("\n===========================")
         print("[{idx}/{total}] {dirname}".format(dirname=target_dir, idx=idx+1, total=len(dirs)))
 
-    
+
 
         # set path
         machine_type = os.path.split(target_dir)[1]
@@ -163,11 +163,11 @@ if __name__ == "__main__":
         features_dir_val = "{features}/{machine_type}/{tip}".format(features=param["features_directory"],
                                                                     machine_type=machine_type, tip="val")
         features_dir_val = os.path.abspath(features_dir_val)
-        
 
-        # create directory 
+
+        # create directory
         if not os.path.isdir(features_dir_train):
-            os.makedirs(features_dir_train) 
+            os.makedirs(features_dir_train)
         else:
             # delete existing features
             list_files_npy = file_list_generator(features_dir_train, ext="npy")
@@ -175,42 +175,42 @@ if __name__ == "__main__":
                 os.remove(file)
 
         if not os.path.isdir(features_dir_val):
-            os.makedirs(features_dir_val) 
+            os.makedirs(features_dir_val)
         else:
             # delete existing features
             list_files_npy = file_list_generator(features_dir_val, ext="npy")
             for file in list_files_npy:
                 os.remove(file)
-        
+
         # load scaler
         scaler_file_path = "{scalers}/{machine_type}".format(scalers=param["scalers_directory"], machine_type=machine_type)
         scaler_file_path = os.path.abspath(scaler_file_path)
         scaler = load(scaler_file_path+"/scaler_{machine_type}.bin".format(machine_type=machine_type))
 
-        
+
         # generate features
         print("============== FEATURES_GENERATOR ==============")
 
         # get wav files list
         list_files_wav = file_list_generator(target_dir, dir_name="train")
 
-        train_filenames, val_filenames= train_test_split( 
+        train_filenames, val_filenames= train_test_split(
                         list_files_wav, test_size=param["fit"]["validation_split"], random_state=1)
 
         # extract and save features
-        list_to_vector_array(train_filenames, features_dir_train, param["train_data"][machine_type], scaler,
+        #param["train_data"][machine_type] replaced by []
+        list_to_vector_array(train_filenames, features_dir_train, [], scaler,
                                         msg="generate train dataset",
                                         n_mels=param["feature"]["n_mels"],
                                         frames=param["feature"]["frames"],
                                         n_fft=param["feature"]["n_fft"],
                                         hop_length=param["feature"]["hop_length"],
                                         power=param["feature"]["power"])
-        
-        list_to_vector_array(val_filenames, features_dir_val, param["train_data"][machine_type], scaler,
+
+        list_to_vector_array(val_filenames, features_dir_val, [], scaler,
                                         msg="generate val dataset",
                                         n_mels=param["feature"]["n_mels"],
                                         frames=param["feature"]["frames"],
                                         n_fft=param["feature"]["n_fft"],
                                         hop_length=param["feature"]["hop_length"],
                                         power=param["feature"]["power"])
-
