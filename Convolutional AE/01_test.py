@@ -178,11 +178,11 @@ if __name__ == "__main__":
         # set model path
         model_file = "{model}/model_{machine_type}.hdf5".format(model=param["model_directory"],
                                                                 machine_type=machine_type)
-        
+
         features_file_path = "{features}/{machine_type}/{tip}".format(features=param["features_directory"],
                                                                         machine_type=machine_type, tip="test")
         features_dir_path = os.path.abspath(features_file_path)
-        
+
         #load scaler
         scaler_file_path = "{scalers}/{machine_type}".format(scalers=param["scalers_directory"], machine_type=machine_type)
         scaler_file_path = os.path.abspath(scaler_file_path)
@@ -196,7 +196,7 @@ if __name__ == "__main__":
             continue
         model = keras_model.load_model(model_file)
         model.summary()
-        
+
 
         if mode:
             # results by type
@@ -224,7 +224,7 @@ if __name__ == "__main__":
 
                 try:
                     # get audio features
-                    vector_array = com.file_to_vector_array(file_path, param["train_data"][machine_type], scaler,
+                    vector_array = com.file_to_vector_array(file_path, [], scaler,
                                                     n_mels=param["feature"]["n_mels"],
                                                     frames=param["feature"]["frames"],
                                                     n_fft=param["feature"]["n_fft"],
@@ -232,7 +232,7 @@ if __name__ == "__main__":
                                                     power=param["feature"]["power"])
 
                     length, _ = vector_array.shape
-                    
+
                     dim = param["autoencoder"]["shape0"]
                     step = param["step"]
 
@@ -248,7 +248,7 @@ if __name__ == "__main__":
                             batch = vector
                         else:
                             batch = numpy.concatenate((batch, vector))
-                        
+
 
                     # add channels dimension
                     data = batch.reshape((batch.shape[0], batch.shape[1], batch.shape[2], 1))
@@ -258,7 +258,7 @@ if __name__ == "__main__":
 
                     y_pred[file_idx] = numpy.mean(errors)
                     anomaly_score_list.append([os.path.basename(file_path), y_pred[file_idx]])
-                
+
 
                 except:
                     com.logger.error("file broken!!: {}".format(file_path))
